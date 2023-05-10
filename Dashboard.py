@@ -15,14 +15,10 @@ app = Dash(__name__)
 # see https://plotly.com/python/px-arguments/ for more options
 
 # Criando a tabela
-df = pd.DataFrame({
-    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-    "Amount": [4, 1, 2, 2, 4, 5],
-    "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-})
+df = pd.read_excel('Base_de_dados.xlsx')
 
 # Criando o gráfico
-fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+fig = px.bar(df, x="Produto", y="Quantidade", color="ID Loja", barmode="group")
 
 app.layout = html.Div(children=[
     html.H1(children='Faturamento das Lojas'),
